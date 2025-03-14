@@ -12,7 +12,8 @@ public class Camping implements InCamping {
     //Atributs
     private String nom;
     private ArrayList<Allotjament> allotjaments = new ArrayList<Allotjament>();
-    private ArrayList<Client> clients = new ArrayList<Client>();
+    private LlistaAccessos llistaAccessos;
+    private  LlistaIncidencies llistaIncidencies;
 
     // Constructor:
     public Camping(String nom) {
@@ -220,7 +221,7 @@ public class Camping implements InCamping {
                 condicio = allotjamentActual.getId().equals(id_);
             }
         } else {
-            throw new ExcepcioCamping("No existeix cap allotjament amb aquesta Id.");
+            throw new ExcepcioCamping("No existeix cap camping amb aquesta id.");
         }
 
         return allotjamentActual;
@@ -247,9 +248,27 @@ public class Camping implements InCamping {
         }
 
     }
+    public Incidencia buscaIncidencia(int num){
+        return this.llistaIncidencies.buscaIncidencia;
+    }
 
 
+    public void afegirIncidencia(int num, String tipus, String idAllotjament, String data) throws ExcepcioCamping {
 
+        Allotjament allotjamentActual = buscaAllotjament(idAllotjament);
+        this.llistaIncidencies.afegirIncidencia(num, tipus, allotjamentActual, data);
+        this.llistaAccessos.actualitzarEstatAccesos();
+
+
+    }
+
+
+    public void eliminarIncidencia(int num) throws ExcepcioCamping {
+
+        Incidencia incidenciaAcutal = buscaIncidencia(num);
+        this.llistaIncidencies.eliminarIncidencia(incidenciaAcutal);
+
+    }
 
 }
 
