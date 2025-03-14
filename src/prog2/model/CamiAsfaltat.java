@@ -12,7 +12,7 @@ public class CamiAsfaltat extends Acces {
 
     // Getters
     public float getAsfalt() {
-        return asfalt
+        return asfalt;
     }
 
     // Setters
