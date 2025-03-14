@@ -58,6 +58,13 @@ public class Incidencia {
     }
 
     public String getIluminacioAllotjament() {
-        return  allotjament.getIluminacio();
+        switch (tipusIncidencia) {
+            case Reparacio:
+                return "100%";
+            case Neteja:
+                return "50%";
+            case Tancament:
+                return "0%";
+        }
     }
 }
