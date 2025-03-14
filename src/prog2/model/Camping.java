@@ -265,7 +265,11 @@ public class Camping implements InCamping {
 
     public void eliminarIncidencia(int num) throws ExcepcioCamping {
 
+        Incidencia incidenciaAcutal = buscaIncidencia(num);
+        this.llistaIncidencies.eliminarIncidencia(incidenciaAcutal);
+
     }
+
 }
 
 
