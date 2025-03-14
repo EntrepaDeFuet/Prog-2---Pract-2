@@ -1,11 +1,11 @@
 package prog2.model;
 
-public class CamiTerra extends Acces {
-    private float longitud;
+public class CamiTerra extends AccesTerra {
+
 
     // Constructor
-    public CamiTerra(boolean accessibilitat, boolean estat, Allotjament desti, float longitud) {
-        super(accessibilitat, estat, desti);
+    public CamiTerra(boolean estat, Allotjament desti, float longitud) {
+        super(this.isAccessibilitat(), estat, desti);
 
         this.setLongitud(float longitud);
     }
@@ -13,6 +13,10 @@ public class CamiTerra extends Acces {
     // Getters
     public float getLongitud(){
         return longitud;
+    }
+
+    public boolean isAccessibilitat(){
+        return false;
     }
 
     // Setters

@@ -1,6 +1,7 @@
 package prog2.model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public abstract class Acces  implements  InAcces {
     private boolean accessibilitat;
@@ -8,6 +9,10 @@ public abstract class Acces  implements  InAcces {
     private ArrayList<Allotjament> destins = new ArrayList<Allotjament>();
 
     public Acces(boolean accessibilitat_, boolean estat_, Allotjament desti_) {
+
+        this.setEstat(estat_);
+        this.setAccessibilitat(accessibilitat_);
+        this.afegirAllotjament(desti_);
 
     }
 
@@ -40,8 +45,20 @@ public abstract class Acces  implements  InAcces {
         this.setEstat(false);
     }
 
-    public boolean isAccessibilitat() {
-        return accessibilitat;
+    public String toString(){
+
+        String allotjaments = "";
+        String resultat = " Accesible per a vehicles : " + accessibilitat + " Operatiu: " +estat;
+        Iterator<Allotjament> itrdestins = this.destins.iterator();
+
+        while(itrdestins.hasNext()){
+            allotjaments += " " +itrdestins.next().getId();
+        }
+        resultat+= "Llista d'allotjaments: "+ allotjaments;
+
+        return resultat;
     }
+
+
 }
 

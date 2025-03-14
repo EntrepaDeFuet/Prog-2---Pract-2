@@ -1,12 +1,12 @@
 package prog2.model;
 
-public class CarreteraTerra  extends  CamiTerra {
+public class CarreteraTerra  extends  AccesTerra {
     private  float amplada;
 
     // Constructor
 
-    public CarreteraTerra(boolean accessibilitat, boolean estat, Allotjament desti, float longitud, float amplada) {
-        super(true, estat, desti, longitud);
+    public CarreteraTerra(, boolean estat, Allotjament desti, float longitud, float amplada) {
+        super(this.isAccessibilitat(), estat, desti, longitud);
 
         this.setAmplada(float amplada);
     }
@@ -14,6 +14,10 @@ public class CarreteraTerra  extends  CamiTerra {
     // Getters
     public float getAmplada() {
         getAmplada();
+    }
+
+    public boolean isAccessibilitat(){
+        return true;
     }
 
     // Setters
