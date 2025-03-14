@@ -6,7 +6,7 @@ public class CarreteraTerra  extends  CamiTerra {
     // Constructor
 
     public CarreteraTerra(boolean accessibilitat, boolean estat, Allotjament desti, float longitud, float amplada) {
-        super(accessibilitat, estat, desti, longitud)
+        super(true, estat, desti, longitud);
 
         this.setAmplada(float amplada);
     }

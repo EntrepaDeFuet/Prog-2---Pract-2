@@ -5,7 +5,7 @@ public class CarreteraAsfaltada extends CamiAsfaltat{
 
     // Constructor
     public CarreteraAsfaltada(boolean accessibilitat, boolean estat, Allotjament desti, float asfalt, float pesMaxim) {
-        super(accessibilitat, estat, desti, asfalt);
+        super(true, estat, desti, asfalt);
 
         this.setPesMaxim(pesMaxim);
     }
