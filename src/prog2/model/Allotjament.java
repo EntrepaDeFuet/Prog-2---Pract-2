@@ -30,6 +30,10 @@ public abstract class Allotjament implements InAllotjament {
         return id;
     }
 
+    public boolean isEstat() {
+        return estat;
+    }
+
     public long getEstadaMinima(Temp temp){
 
         return switch (temp) {
