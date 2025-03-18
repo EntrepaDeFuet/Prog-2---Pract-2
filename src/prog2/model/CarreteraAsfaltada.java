@@ -1,11 +1,11 @@
 package prog2.model;
 
-public class CarreteraAsfaltada extends CamiAsfaltat{
+public class CarreteraAsfaltada extends AccesAsfalt{
     private float pesMaxim;
 
     // Constructor
-    public CarreteraAsfaltada(boolean accessibilitat, boolean estat, Allotjament desti, float asfalt, float pesMaxim) {
-        super(true, estat, desti, asfalt);
+    public CarreteraAsfaltada(String nom_,boolean estat, Allotjament desti, float asfalt, float pesMaxim) {
+        super(nom_,this.isAccessibilitat(), estat, desti, asfalt);
 
         this.setPesMaxim(pesMaxim);
     }
@@ -14,8 +14,16 @@ public class CarreteraAsfaltada extends CamiAsfaltat{
     public float getPesMaxim() {
         return pesMaxim;
     }
+
+    public boolean isAccessibilitat(){
+        return true;
+    }
     // Setters
     public void setPesMaxim(float pesMaxim) {
         this.pesMaxim = pesMaxim;
+    }
+    //Altres:
+    public String toString(){
+        return super.toString() + " Pes màxim: " + this.getPesMaxim() + "kg.";
     }
 }
