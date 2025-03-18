@@ -4,10 +4,9 @@ public class CamiAsfaltat extends AccesAsfalt {
 
 
     // Constructor
-    public CamiAsfaltat(boolean estat, Allotjament desti, float asfalt) {
-        super(this.isAccessibilitat(), estat, desti);
+    public CamiAsfaltat(String nom_,boolean estat, Allotjament desti, float asfalt) {
+        super(nom_,this.isAccessibilitat(), estat, desti, asfalt);
 
-        this.setAsfalt(asfalt);
     }
 
     // Getters
@@ -19,8 +18,16 @@ public class CamiAsfaltat extends AccesAsfalt {
         return false;
     }
 
+    /**
+     * @param asfalt_
+     *
+     */
     // Setters
     public void setAsfalt(float asfalt_) {
         this.asfalt = asfalt_;
+    }
+    //Altres:
+    public String toString(){
+        return super.toString();
     }
 }

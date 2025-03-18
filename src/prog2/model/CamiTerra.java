@@ -4,8 +4,8 @@ public class CamiTerra extends AccesTerra {
 
 
     // Constructor
-    public CamiTerra(boolean estat, Allotjament desti, float longitud) {
-        super(this.isAccessibilitat(), estat, desti);
+    public CamiTerra(String nom_,boolean estat, Allotjament desti, float longitud) {
+        super(nom_,this.isAccessibilitat(), estat, desti);
 
         this.setLongitud(float longitud);
     }
@@ -22,5 +22,10 @@ public class CamiTerra extends AccesTerra {
     // Setters
     public float setLongitud(float longitud) {
         this.longitud = longitud;
+    }
+
+    //Altres:
+    public String toString(){
+        return super.toString();
     }
 }

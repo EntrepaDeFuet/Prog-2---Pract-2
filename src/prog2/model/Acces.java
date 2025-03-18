@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public abstract class Acces  implements  InAcces {
+    private String nom;
     private boolean accessibilitat;
     private boolean estat;
     private ArrayList<Allotjament> destins = new ArrayList<Allotjament>();
 
-    public Acces(boolean accessibilitat_, boolean estat_, Allotjament desti_) {
-
+    public Acces(String nom_, boolean accessibilitat_, boolean estat_, Allotjament desti_) {
+        this.setNom(nom_);
         this.setEstat(estat_);
         this.setAccessibilitat(accessibilitat_);
         this.afegirAllotjament(desti_);
@@ -25,11 +26,19 @@ public abstract class Acces  implements  InAcces {
         return this.destins;
     }
 
+    public String getNom(){
+        return this.nom;
+    }
+
     // Setters
     public void setAccessibilitat(boolean accessibilitat_) { this.accessibilitat = accessibilitat_; }
 
     public void setEstat(boolean estat_) {
         this.estat = estat_;
+    }
+
+    public void setNom(String nom_){
+        this.nom = nom_;
     }
 
     //Altres metodes
@@ -48,7 +57,7 @@ public abstract class Acces  implements  InAcces {
     public String toString(){
 
         String allotjaments = "";
-        String resultat = " Accesible per a vehicles : " + accessibilitat + " Operatiu: " +estat;
+        String resultat = "Nom: " + this.getNom() + " Accesible per a vehicles : " + this.isAccessibilitat() + " Operatiu: " + this.isEstat();
         Iterator<Allotjament> itrdestins = this.destins.iterator();
 
         while(itrdestins.hasNext()){

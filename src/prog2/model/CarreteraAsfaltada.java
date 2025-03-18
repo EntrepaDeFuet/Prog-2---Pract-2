@@ -4,8 +4,8 @@ public class CarreteraAsfaltada extends AccesAsfalt{
     private float pesMaxim;
 
     // Constructor
-    public CarreteraAsfaltada(boolean estat, Allotjament desti, float asfalt, float pesMaxim) {
-        super(this.isAccessibilitat(), estat, desti, asfalt);
+    public CarreteraAsfaltada(String nom_,boolean estat, Allotjament desti, float asfalt, float pesMaxim) {
+        super(nom_,this.isAccessibilitat(), estat, desti, asfalt);
 
         this.setPesMaxim(pesMaxim);
     }
@@ -21,5 +21,9 @@ public class CarreteraAsfaltada extends AccesAsfalt{
     // Setters
     public void setPesMaxim(float pesMaxim) {
         this.pesMaxim = pesMaxim;
+    }
+    //Altres:
+    public String toString(){
+        return super.toString() + " Pes màxim: " + this.getPesMaxim() + "kg.";
     }
 }
