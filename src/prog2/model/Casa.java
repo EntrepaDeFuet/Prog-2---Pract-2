@@ -37,6 +37,17 @@ public abstract class Casa extends  Allotjament{
 
     //altres:
     public String toString(){
-        return "Mida: " + getMida() + ", habitacions: " + getHabitacions() + ", places: " + getPlacesPersones();
+
+        StringBuffer nouString = new StringBuffer();
+        nouString.append(super.toString());
+        nouString.append(", mida: ");
+        nouString.append(mida);
+        nouString.append(", habitacions: ");
+        nouString.append(habitacions);
+        nouString.append(", nombre de places: ");
+        nouString.append(places);
+
+        return nouString.toString();
+
     }
 }

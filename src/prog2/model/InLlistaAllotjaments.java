@@ -49,7 +49,7 @@ public interface InLlistaAllotjaments {
      * @return  Objecte de tipus Allotjament
      * @throws prog2.vista.ExcepcioCamping Aquest mètode podria llançar una excepció si fos necessari.
      */
-    public Allotjament getAllotjament(String nom) throws ExcepcioCamping;
+    public Allotjament getAllotjament(String id) throws ExcepcioCamping;
     
  
 }

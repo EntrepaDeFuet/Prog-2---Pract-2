@@ -27,7 +27,11 @@ public class MobilHome extends Casa{
     }
 
     public String toString() {
-        return "Nom: " + super.getNom() + ", ID allotjament: " + super.getId() + ", mida: " + super.getMida() + ", habiatacions: " + super.getHabitacions() + ", places: " + 
-        super.getPlacesPersones() + ", terrassa amb barbacoa: " + getBbq();
+
+        StringBuffer nouString = new StringBuffer();
+        nouString.append(super.toString());
+        nouString.append(" La terrassa amb barbacoa està disponible? ");
+        nouString.append(bbq);
+        return nouString.toString();
     }
 }
