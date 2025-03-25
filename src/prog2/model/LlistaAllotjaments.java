@@ -20,13 +20,13 @@ public class LlistaAllotjaments {
      * @param nom_
      * @return
      */
-    public boolean allotjamentRepetit(String nom_){
+    public boolean allotjamentRepetit(String id){
 
         boolean repetit = false;
         Iterator<Allotjament> itrAllotjaments = llista.iterator();
 
         while(itrAllotjaments.hasNext() && !repetit){
-            repetit = itrAllotjaments.next().getNom().equals(nom_);
+            repetit = itrAllotjaments.next().getNom().equals(id);
         }
 
 
@@ -39,7 +39,7 @@ public class LlistaAllotjaments {
         if(!this.contains(allotjament)){
             llista.add(allotjament);
         } else {
-            throw new ExcepcioCamping ("Ja existeix un Allotjament amb aquest nom.");
+            throw new ExcepcioCamping("Ja existeix un Allotjament amb aquest nom.");
         }
     }
 
@@ -56,7 +56,7 @@ public class LlistaAllotjaments {
         }
     }
 
-    public boolean containsOperatiu(){
+    public boolean containsAllotjamentOperatiu(){
 
         Iterator <Allotjament> itrLlista = llista.iterator();
         boolean operatiu = false;
@@ -64,7 +64,7 @@ public class LlistaAllotjaments {
 
         while (itrLlista.hasNext() && !operatiu){
             allotjamentActual = itrLlista.next();
-            operatiu = allotjamentActual.isEstat();
+            operatiu = allotjamentActual.getEstat().equals("100%");
         }
         return operatiu;
     }
@@ -74,5 +74,47 @@ public class LlistaAllotjaments {
         return llista.isEmpty();
 
     }
+
+    public Allotjament getAllotjament(String id) throws ExcepcioCamping{
+
+        if(this.allotjamentRepetit(id)){
+
+            Iterator <Allotjament> itrAllotjaments = this.llista.iterator();
+            Allotjament allotjamentActual = null;
+
+            while(itrAllotjaments.hasNext() && !allotjamentActual.getId().equals(id)){
+
+                allotjamentActual = itrAllotjaments.next();
+
+            }
+            return allotjamentActual;
+        }
+        else {
+
+            throw new ExcepcioCamping("No existeix cap allotjament amb aquest nom.");
+
+        }
+    }
+
+    public String llistarAllotjament(String estat){
+
+        Allotjament allotjamentActual = null;
+        Iterator<Allotjament> itrAllotjaments = llista.iterator();
+        StringBuffer llistat = new StringBuffer();
+
+        while(itrAllotjaments.hasNext()){
+
+            allotjamentActual = itrAllotjaments.next();
+
+            if(allotjamentActual.getEstat().equals(estat)){
+
+                llistat.append(allotjamentActual.toString());
+                llistat.append("\n");
+            }
+        }
+        return llistat.toString();
+
+    }
+
 
 }

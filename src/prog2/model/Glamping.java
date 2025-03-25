@@ -38,17 +38,16 @@ public class Glamping extends Casa{
     }
 
     public String toString() {
-        String mascota;
-        if(this.getMascota()){
 
-            mascota = "si";
+        StringBuffer nouString = new StringBuffer();
+        nouString.append(super.toString());
+        nouString.append(", disposa d'espai per a mascota? ");
+        nouString.append(mascota);
+        nouString.append(", El glamping està fabricat amb: ");
+        nouString.append(material);
 
-        } else{
+        return nouString.toString();
 
-            mascota = "no";
-        }
-
-        return "Nom: " + super.getNom() + ", ID allotjament: " + super.getId() + ", mida: " + super.getMida() + ", nombre d'habitacions: " + super.getHabitacions() + ", places: " + super.getPlacesPersones()
-                + " Espai per a mascotes: " + mascota + " Material del glamping: "+material;
     }
+
 }

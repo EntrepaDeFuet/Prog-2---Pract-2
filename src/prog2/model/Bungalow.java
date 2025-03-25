@@ -50,7 +50,14 @@ public class Bungalow extends Casa{
     }
 
     public String toString() {
-        return "Nom: " + super.getNom() + ", ID allotjament: " + super.getId() + ", mida: " + super.getMida() + ", nombre d'habitacions: " + super.getHabitacions() + ", places: " + 
-        super.getPlacesPersones() + ", places del parking: " + getPlacesParquing() + " ,terrasa: " + isTerrassa() + ", aire acondicionat: " + isAireFred();
+        StringBuffer nouString = new StringBuffer();
+        nouString.append(super.toString());
+        nouString.append(", places de parking: ");
+        nouString.append(this.placesParking);
+        nouString.append(", disposa de terrassa en funcionament? ");
+        nouString.append(this.isTerrassa());
+        nouString.append(", disposa d'aire acondicionat? ");
+        nouString.append(this.isAireFred());
+        return nouString.toString();
     }
 }
