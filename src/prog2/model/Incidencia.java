@@ -30,7 +30,7 @@ public class Incidencia {
         return allotjament;
     }
 
-    public TipusIncidencia getTipusIncidencia() {
+    public TipusIncidencia getTipusInicdencia() {
         return tipusIncidencia;
     }
 
