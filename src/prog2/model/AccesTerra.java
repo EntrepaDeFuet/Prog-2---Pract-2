@@ -10,9 +10,10 @@ public class AccesTerra extends Acces{
 
     }
     public String toString(){
-        String resultat;
-        resultat = super.toString();
-        resultat = resultat + " Longitud del accés: " + longitud;
-        return resultat;
+        StringBuffer sb = new StringBuffer();
+        sb.append(super.toString());
+        sb.append("Longitud: ").append(this.longitud);
+
+        return sb.toString();
     }
 }

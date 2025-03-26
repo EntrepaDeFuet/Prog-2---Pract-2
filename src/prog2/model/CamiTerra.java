@@ -26,6 +26,9 @@ public class CamiTerra extends AccesTerra {
 
     //Altres:
     public String toString(){
-        return super.toString();
+        StringBuffer sb = new StringBuffer();
+        sb.append(super.toString());
+
+        return sb.toString();
     }
 }

@@ -8,6 +8,10 @@ public class AccesAsfalt extends Acces{
         this.asfalt = asfalt;
     }
     public String toString(){
-        return super.toString() + " Àrea asfaltada: " + asfalt;
+        StringBuffer sb = new StringBuffer();
+        sb.append(super.toString());
+        sb.append("Àrea asfaltada: " + this.asfalt);
+
+        return sb.toString();
     }
 }

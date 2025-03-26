@@ -27,9 +27,10 @@ public class CarreteraTerra  extends  AccesTerra {
 
     //Altres:
     public String toString(){
-        String resultat;
-        resultat = super.toString() + " Amplada de la carretera: " + this.getAmplada();
-        return resultat;
-    }
+        StringBuffer sb = new StringBuffer();
+        sb.append(super.toString());
+        sb.append("Amplada: "+this.getAmplada());
 
+        return sb.toString();
+    }
 }
