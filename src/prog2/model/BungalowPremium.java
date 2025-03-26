@@ -41,8 +41,14 @@ public class BungalowPremium extends Bungalow{
 
     @Override
     public String toString() {
-        return "Nom: " + this.getNom() + ", ID allotjament: " + this.getId() + ", mida: " + this.getMida() + ", nombre d'habitacions: " + this.getHabitacions() + ", places: " +
-        this.getPlacesPersones() + ", places del parking: " + this.getPlacesParquing() + " ,terrasa: " + this.isTerrassa() + ", aire acondicionat: " + this.isAireFred() + ", servis extra: " +
-        isServeisExtra() + ", codi wifi: " + getCodiWifi();
+
+        StringBuffer nouString = new StringBuffer();
+        nouString.append(super.toString());
+        nouString.append(", disposa de serveis extra? ");
+        nouString.append(this.isServeisExtra());
+        nouString.append(", codi wifi: ");
+        nouString.append(this.getCodiWifi());
+
+        return nouString.toString();
     }
 }
