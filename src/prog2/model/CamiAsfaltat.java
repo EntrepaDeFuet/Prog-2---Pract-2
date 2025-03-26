@@ -11,7 +11,7 @@ public class CamiAsfaltat extends AccesAsfalt {
 
     // Getters
     public float getAsfalt() {
-        return asfalt
+        return asfalt;
     }
 
     public boolean isAccessibilitat(){

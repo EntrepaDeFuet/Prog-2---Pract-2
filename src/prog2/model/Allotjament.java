@@ -8,7 +8,7 @@ public abstract class Allotjament implements InAllotjament {
     private long estadaMinimaTempAlta;
     private String estat;
     // només pot ser 0: 0% ,1: 50%, o 2: 100%
-    private int iluminacio;
+    private String iluminacio;
 
 
     public Allotjament(String _id, String _nom, int estadaMinimaTempAlta_, int estadaMinimaTempBaixa_) {
@@ -28,6 +28,7 @@ public abstract class Allotjament implements InAllotjament {
     public String getId() {
         return id;
     }
+    public String getIluminacio() { return  iluminacio; }
 
 
     public long getEstadaMinima(Temp temp) {
@@ -45,9 +46,9 @@ public abstract class Allotjament implements InAllotjament {
 
     //setters:
 
-    public void setIluminacio(int _iluminacio) {
-        this.iluminacio = _iluminacio;
-    }
+
+    public void setIluminacio(String _iluminacio) {this.iluminacio = _iluminacio;}
+
 
     public void obrirAllotjament() {
         this.estat = "100%";
