@@ -11,7 +11,6 @@ public class LlistaIncidencies implements InLlistaIncidencies {
 
     // Constructor
     public LlistaIncidencies(Incidencia incidencia_) {
-
     }
 
     // Altres mètodes
@@ -38,7 +37,12 @@ public class LlistaIncidencies implements InLlistaIncidencies {
         Iterator<Incidencia> it = llistaIncidencies.iterator();
 
         while (it.hasNext()) {
-
+            incidenciaActual = it.next();
+            if(incidenciaActual.getNum()==in.getNum()){
+                it.remove();
+            } else {
+                throw new ExcepcioCamping("No s'ha trobat cap allotjament igual.");
+            }
         }
     }
 
@@ -55,7 +59,8 @@ public class LlistaIncidencies implements InLlistaIncidencies {
                 sb.append(incidenciaActual.getData());
                 sb.append(incidenciaActual.getNum());
                 sb.append(incidenciaActual.getAllotjament());
-                sb.append(incidenciaActual.getTipusIncidencia());
+                String tipus = incidenciaActual.getTipusInicdencia().name();
+                sb.append(tipus);
                 sb.append(incidenciaActual.getIluminacioAllotjament());
                 sb.append("\n");
                 comptador++;
