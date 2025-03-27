@@ -10,32 +10,83 @@ public class LlistaAccessos implements InLlistaAccessos{
     private ArrayList<Acces> llista;
 
     // Constructor
-    public LlistaAccessos() { this.llista = new ArrayList<Acces>() }
+    public LlistaAccessos() { this.llista = new ArrayList<Acces>(); }
 
     public void afegirAcces(Acces acc) throws ExcepcioCamping {
         if (!this.llista.contains(acc)) {
-            llista.add(acc)
+            llista.add(acc);
         } else {
             throw new ExcepcioCamping("Aquest accés ja existeix");
         }
     }
 
-    public void buidar() throws ExcepcioCamping{
+    public void buidar(){
         llista.clear();
     }
 
     public String llistarAccessos(boolean estat) throws ExcepcioCamping{
-        Acces accesActual = null;
-        Iterator<Acces> it = llista.iterator();
-        StringBuffer sb = new StringBuffer();
+        if (!llista.isEmpty()) {
+            Acces accesActual = null;
+            Iterator<Acces> it = llista.iterator();
+            StringBuffer sb = new StringBuffer();
 
-        while (it.hasNext()) {
-            accesActual = it.next();
+            while (it.hasNext()) {
+                accesActual = it.next();
 
-            if (accesActual.isEstat().equals(estat)) {
-                sb.append(accesActual.toString()).append("\n");
+                if (accesActual.isEstat() == estat)) {
+                    sb.append(accesActual.toString()).append("\n");
+                }
             }
+            return sb.toString();
+        } else {
+            throw new ExcepcioCamping("Llista buida.")
         }
-        return sb.toString();
+    }
+
+    public void actualitzaEstatAccessos() throws ExcepcioCamping {
+        if (llista.isEmpty()) {
+            Acces accesActual = null;
+            Iterator<Acces> it = llista.iterator();
+
+            while (it.hasNext()) {
+                accesActual = it.next();
+                if () {
+
+                } else {
+                    accesActual.setEstat(false);
+                }
+            }
+        } else {
+            throw new ExcepcioCamping("Aquesta llista està buida");
+        }
+    }
+
+    public int calculaAccessosAccessibles() throws ExcepcioCamping {
+        if (!llista.isEmpty()) {
+            int comptador = 0;
+            Acces accesActual = null;
+            Iterator<Acces> it = llista.iterator();
+            StringBuffer sb = new StringBuffer();
+
+            while (it.hasNext()) {
+                accesActual = it.next();
+
+                if (accesActual.isEstat()) {
+                    comptador = comptador + 1;
+                }
+            }
+            return comptador;
+
+        } else {
+            throw new ExcepcioCamping("Aquesta llista està buida");
+        }
+    }
+
+    public float calculaMetresQuadratsAsfalt() throws ExcepcioCamping {
+        if (llista.isEmpty()) {
+
+        } else {
+            throw new ExcepcioCamping("Aquesta llista està buida");
+        }
     }
 }
