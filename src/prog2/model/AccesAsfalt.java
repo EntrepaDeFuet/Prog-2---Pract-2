@@ -7,6 +7,7 @@ public class AccesAsfalt extends Acces{
         super(nom_,accessibilitat_,estat_,desti_);
         this.asfalt = asfalt;
     }
+    public float getAsfalt() { return asfalt; }
     public String toString(){
         return super.toString() + " Àrea asfaltada: " + asfalt;
     }

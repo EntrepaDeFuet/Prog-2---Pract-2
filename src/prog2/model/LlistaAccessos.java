@@ -50,8 +50,8 @@ public class LlistaAccessos implements InLlistaAccessos{
 
             while (it.hasNext()) {
                 accesActual = it.next();
-                if () {
-
+                if (!accesActual.isAccessibilitat()) { // l'atribut accessibilitat entenc que fa referencia
+                    accesActual.setAccessibilitat(false);
                 } else {
                     accesActual.setEstat(false);
                 }
@@ -83,8 +83,20 @@ public class LlistaAccessos implements InLlistaAccessos{
     }
 
     public float calculaMetresQuadratsAsfalt() throws ExcepcioCamping {
-        if (llista.isEmpty()) {
+        if (!llista.isEmpty()) {
+            Acces accesActual;
+            Iterator<Acces> it = llista.iterator();
+            float metresQuadrats = 0;
+            while (it.hasNext()) {
+                accesActual = it.next();
+                if (accesActual instanceof AccesAsfalt) {
+                    AccesAsfalt asfaltActual = (AccesAsfalt) accesActual;
+                    float area = asfaltActual.getAsfalt();
+                    metresQuadrats = metresQuadrats + area;
+                }
+            }
 
+            return metresQuadrats;
         } else {
             throw new ExcepcioCamping("Aquesta llista està buida");
         }
