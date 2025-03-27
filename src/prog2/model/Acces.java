@@ -63,11 +63,12 @@ public abstract class Acces  implements  InAcces {
         sb.append("Nom: " + this.nom + "\n");
         sb.append("Accessibilitat: " + this.isAccessibilitat() + "\n");
         sb.append("Estat: " + this.isEstat() + "\n");
-
+        sb.append("Destins: ");
         Iterator<Allotjament> itrdestins = this.destins.iterator();
 
         while(itrdestins.hasNext()){
             sb.append(itrdestins.next().getId());
+            sb.append(", ");
         }
 
         return sb.toString();

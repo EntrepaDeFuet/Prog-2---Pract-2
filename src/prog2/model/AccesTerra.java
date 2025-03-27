@@ -9,6 +9,15 @@ public class AccesTerra extends Acces{
         this.longitud = longitud;
 
     }
+    //getters:
+    public float getLongitud(){
+        return longitud;
+    }
+    // Setters:
+    public float setLongitud(float longitud) {
+        this.longitud = longitud;
+    }
+
     public String toString(){
         StringBuffer sb = new StringBuffer();
         sb.append(super.toString());
