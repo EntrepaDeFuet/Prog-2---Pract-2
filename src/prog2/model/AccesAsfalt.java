@@ -7,7 +7,21 @@ public class AccesAsfalt extends Acces{
         super(nom_,accessibilitat_,estat_,desti_);
         this.asfalt = asfalt;
     }
+    //Getters:
+    public float getAsfalt() {
+        return asfalt;
+    }
+
+    // Setters:
+    public void setAsfalt(float asfalt_) {
+        this.asfalt = asfalt_;
+    }
+
     public String toString(){
-        return super.toString() + " Àrea asfaltada: " + asfalt;
+        StringBuffer sb = new StringBuffer();
+        sb.append(super.toString());
+        sb.append("Àrea asfaltada: " + this.asfalt);
+
+        return sb.toString();
     }
 }

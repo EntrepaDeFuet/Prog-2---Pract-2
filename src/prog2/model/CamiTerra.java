@@ -9,23 +9,16 @@ public class CamiTerra extends AccesTerra {
 
         this.setLongitud(float longitud);
     }
-
-    // Getters
-    public float getLongitud(){
-        return longitud;
-    }
-
+    //Getters:
     public boolean isAccessibilitat(){
         return false;
     }
 
-    // Setters
-    public float setLongitud(float longitud) {
-        this.longitud = longitud;
-    }
-
     //Altres:
     public String toString(){
-        return super.toString();
+        StringBuffer sb = new StringBuffer();
+        sb.append(super.toString());
+
+        return sb.toString();
     }
 }

@@ -9,25 +9,17 @@ public class CamiAsfaltat extends AccesAsfalt {
 
     }
 
-    // Getters
-    public float getAsfalt() {
-        return asfalt;
-    }
-
+    // Getters:
     public boolean isAccessibilitat(){
         return false;
     }
 
-    /**
-     * @param asfalt_
-     *
-     */
-    // Setters
-    public void setAsfalt(float asfalt_) {
-        this.asfalt = asfalt_;
-    }
+
     //Altres:
     public String toString(){
-        return super.toString();
+        StringBuffer sb = new StringBuffer();
+        sb.append(super.toString());
+
+        return sb.toString();
     }
 }
