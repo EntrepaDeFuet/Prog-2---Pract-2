@@ -6,6 +6,7 @@ public abstract class Allotjament implements InAllotjament {
     private String nom;
     private long estadaMinimaTempBaixa;
     private long estadaMinimaTempAlta;
+    // "Operatiu" "No Operatiu"
     private String estat;
     // només pot ser 0: 0% ,1: 50%, o 2: 100%
     private String iluminacio;
@@ -51,8 +52,8 @@ public abstract class Allotjament implements InAllotjament {
 
 
     public void obrirAllotjament() {
-        this.estat = "100%";
-        this.setIluminacio(2);
+        this.estat = "Operatiu";
+        this.setIluminacio("100%");
     }
 
     public void setId(String id_) {

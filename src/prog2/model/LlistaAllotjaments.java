@@ -17,7 +17,7 @@ public class LlistaAllotjaments {
 
     /**
      * A partir d'un nom busca si hi ha algun allotjament que ja existeixi amb aquest nom.
-     * @param nom_
+     * @param id
      * @return
      */
     public boolean allotjamentRepetit(String id){

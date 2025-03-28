@@ -1,6 +1,6 @@
 package prog2.model;
 
-public class AccesTerra extends Acces{
+public abstract class  AccesTerra extends Acces{
     private float longitud;
 
     public AccesTerra(String nom_,boolean accessibilitat_, boolean estat_, Allotjament desti_,float longitud){
