@@ -24,6 +24,9 @@ public class CarreteraAsfaltada extends AccesAsfalt{
     }
     //Altres:
     public String toString(){
-        return super.toString() + " Pes màxim: " + this.getPesMaxim() + "kg.";
+        StringBuffer sb = new StringBuffer();
+        sb.append("Pes Maxim: " + this.getPesMaxim());
+
+        return sb.toString();
     }
 }

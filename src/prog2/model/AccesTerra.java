@@ -1,6 +1,6 @@
 package prog2.model;
 
-public class AccesTerra extends Acces{
+public abstract class  AccesTerra extends Acces{
     private float longitud;
 
     public AccesTerra(String nom_,boolean accessibilitat_, boolean estat_, Allotjament desti_,float longitud){
@@ -9,10 +9,20 @@ public class AccesTerra extends Acces{
         this.longitud = longitud;
 
     }
+    //getters:
+    public float getLongitud(){
+        return longitud;
+    }
+    // Setters:
+    public float setLongitud(float longitud) {
+        this.longitud = longitud;
+    }
+
     public String toString(){
-        String resultat;
-        resultat = super.toString();
-        resultat = resultat + " Longitud del accés: " + longitud;
-        return resultat;
+        StringBuffer sb = new StringBuffer();
+        sb.append(super.toString());
+        sb.append("Longitud: ").append(this.longitud);
+
+        return sb.toString();
     }
 }

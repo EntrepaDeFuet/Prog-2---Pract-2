@@ -14,7 +14,10 @@ public class Incidencia {
 
     // Constructor
     public Incidencia(String data, int num, Allotjament allotjament, TipusIncidencia tipusIncidencia) {
-
+        this.data = data;
+        this.num = num;
+        this.allotjament = allotjament;
+        this.tipusIncidencia = tipusIncidencia;
     }
 
     // Getters
@@ -30,7 +33,7 @@ public class Incidencia {
         return allotjament;
     }
 
-    public TipusIncidencia getTipusInicdencia() {
+    public TipusIncidencia getTipusIncidencia() {
         return tipusIncidencia;
     }
 
@@ -53,8 +56,19 @@ public class Incidencia {
 
     // Altres metodes
     public String toString() {
-        return "La data es: " + getData() + ", el numero de la incidencia es: " + getNum() + ", el allotjament és: " +
-                getAllotjament() + ", el tipus d'incidencia es: " + getTipusIncidencia();
+
+        StringBuffer nouString = new StringBuffer();
+        nouString.append("El número d'incidència és: ");
+        nouString.append(this.getNum());
+        nouString.append(" a l'allotjament: ");
+        nouString.append(this.getAllotjament().toString());
+        nouString.append("\n");
+        nouString.append("Amb data: ");
+        nouString.append(this.getData());
+        nouString.append(" i és una incidencia de tipus: ");
+        nouString.append(this.getTipusIncidencia());
+
+        return nouString.toString();
     }
 
     public String getIluminacioAllotjament() {
@@ -65,6 +79,8 @@ public class Incidencia {
                 return "50%";
             case Tancament:
                 return "0%";
+            default:
+                return "100%";
         }
     }
 }

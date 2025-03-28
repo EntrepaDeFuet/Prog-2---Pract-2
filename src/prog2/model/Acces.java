@@ -81,20 +81,23 @@ public abstract class Acces  implements  InAcces {
         this.setEstat(false);
     }
 
-    public String toString(){
+    public boolean isAccessibilitat() {
+        return this.accessibilitat;
+    }
 
-        String allotjaments = "";
-        String resultat = "Nom: " + this.getNom() + " Accesible per a vehicles : " + this.isAccessibilitat() + " Operatiu: " + this.isEstat();
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("Nom: " + this.nom + "\n");
+        sb.append("Accessibilitat: " + this.isAccessibilitat() + "\n");
+        sb.append("Estat: " + this.isEstat() + "\n");
+        sb.append("Destins: ");
         Iterator<Allotjament> itrdestins = this.destins.iterator();
 
         while(itrdestins.hasNext()){
-            allotjaments += " " +itrdestins.next().getId();
+            sb.append(itrdestins.next().getId());
+            sb.append(", ");
         }
-        resultat+= "Llista d'allotjaments: "+ allotjaments;
 
-        return resultat;
+        return sb.toString();
     }
-
-
 }
-
