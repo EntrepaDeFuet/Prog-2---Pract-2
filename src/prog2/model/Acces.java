@@ -1,5 +1,7 @@
 package prog2.model;
 
+import prog2.vista.ExcepcioCamping;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -44,6 +46,31 @@ public abstract class Acces  implements  InAcces {
     //Altres metodes
     public void afegirAllotjament(Allotjament allotjament) {
         this.destins.add(allotjament);
+    }
+
+    public boolean teAllotjamentsOberts() throws ExcepcioCamping {
+        boolean enTe = false;
+        Iterator<Allotjament> itr = destins.iterator();
+        Allotjament allotjamentActual = null;
+        String estat;
+        if(destins.isEmpty()){
+            throw new ExcepcioCamping("El Acces: "+this.getNom()+" no té cap allotjament associat.");
+        } else {
+            while (itr.hasNext() && !enTe) {
+                allotjamentActual = itr.next();
+                estat = allotjamentActual.getEstat();
+                switch (estat){
+                    case "Operatiu":
+                        enTe = true;
+                        break;
+                    case "No Operatiu":
+                        break;
+                    default:
+                        throw new ExcepcioCamping("L'allotjament "+allotjamentActual.getNom()+" té un estat invàlid.");
+                }
+            }
+        }
+        return enTe;
     }
 
     public void obrirAcces() {

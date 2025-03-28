@@ -33,13 +33,14 @@ public class LlistaAccessos implements InLlistaAccessos{
             while (it.hasNext()) {
                 accesActual = it.next();
 
-                if (accesActual.isEstat() == estat)) {
-                    sb.append(accesActual.toString()).append("\n");
+                if (accesActual.isEstat() == estat) {
+                    sb.append(accesActual);
+                    sb.append("\n");
                 }
             }
             return sb.toString();
         } else {
-            throw new ExcepcioCamping("Llista buida.")
+            throw new ExcepcioCamping("Llista buida.");
         }
     }
 
@@ -49,9 +50,11 @@ public class LlistaAccessos implements InLlistaAccessos{
             Iterator<Acces> it = llista.iterator();
 
             while (it.hasNext()) {
+
                 accesActual = it.next();
-                if (!accesActual.isAccessibilitat()) { // l'atribut accessibilitat entenc que fa referencia
-                    accesActual.setAccessibilitat(false);
+
+                if (accesActual.teAllotjamentsOberts()) {
+                    accesActual.setEstat(true);
                 } else {
                     accesActual.setEstat(false);
                 }
@@ -71,7 +74,7 @@ public class LlistaAccessos implements InLlistaAccessos{
             while (it.hasNext()) {
                 accesActual = it.next();
 
-                if (accesActual.isEstat()) {
+                if (accesActual.isAccessibilitat()) {
                     comptador = comptador + 1;
                 }
             }
