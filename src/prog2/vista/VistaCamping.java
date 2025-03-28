@@ -118,12 +118,16 @@ public class VistaCamping {
                     System.out.println("Has triat la opció: "+descMenuPrincipal[6]+"\n");
                     System.out.println("Digues la Id de la incidència: ");
                     _num = sc.nextInt();
+                    sc.reset();
                     System.out.println("Introdueix la Id del allotjament: ");
                     _idAllotjament = sc.nextLine();
+                    sc.reset();
                     System.out.println("Ara digues, és una incidència de 'Reparacio','Neteja' o 'Tancament'");
                     _tipus = sc.nextLine();
+                    sc.reset();
                     System.out.println("De quin dia és aquesta incidència? (dd/mm/aaaa)");
                     _data = sc.nextLine();
+                    sc.reset();
                     try {
                         camping.afegirIncidencia(_num, _idAllotjament, _tipus, _data);
                     } catch (ExcepcioCamping e){
