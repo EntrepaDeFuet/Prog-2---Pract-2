@@ -4,8 +4,8 @@ public class CamiTerra extends AccesTerra {
 
 
     // Constructor
-    public CamiTerra(String nom_,boolean estat, Allotjament desti, float longitud) {
-        super(nom_,false, estat, desti,longitud);
+    public CamiTerra(String nom_,boolean estat, float longitud) {
+        super(nom_,false, estat,longitud);
 
     }
     //Getters:

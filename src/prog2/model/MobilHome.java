@@ -5,14 +5,14 @@ public class MobilHome extends Casa{
 
 
     //constructor:
-    public MobilHome(String nom_, String idAllotjament_, String mida, int habitacions, int placesPersones,
+    public MobilHome(String nom_, String idAllotjament_,boolean estat, String iluminacio ,float mida, int habitacions, int placesPersones,
                      boolean terrassaBarbacoa){
 
-        super(idAllotjament_,nom_,mida,habitacions,placesPersones,5,3);
+        super(idAllotjament_,nom_,estat,iluminacio,mida,habitacions,placesPersones,5,3);
         this.setBbq(terrassaBarbacoa);
 
-
     }
+
     //getter:
     public boolean getBbq(){
         return this.bbq;

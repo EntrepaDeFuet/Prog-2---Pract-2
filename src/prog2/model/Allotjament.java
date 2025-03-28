@@ -8,18 +8,22 @@ public abstract class Allotjament implements InAllotjament, Serializable {
     private String nom;
     private long estadaMinimaTempBaixa;
     private long estadaMinimaTempAlta;
-    // "Operatiu" "No Operatiu"
+    // "Operatiu"--"No Operatiu"
     private String estat;
     // només pot ser 0: 0% ,1: 50%, o 2: 100%
     private String iluminacio;
 
 
-    public Allotjament(String _id, String _nom, int estadaMinimaTempAlta_, int estadaMinimaTempBaixa_) {
+    public Allotjament(String _id, String _nom,boolean estat,String iluminacio, int estadaMinimaTempAlta_, int estadaMinimaTempBaixa_) {
 
         this.setId(_id);
         this.setNom(_nom);
-        this.obrirAllotjament();
         setEstadaMinima(estadaMinimaTempAlta_, estadaMinimaTempBaixa_);
+        if(estat){
+            this.estat = "Operatiu";
+        } else {
+            this.estat = "No Operatiu";
+        }
     }
 
 
