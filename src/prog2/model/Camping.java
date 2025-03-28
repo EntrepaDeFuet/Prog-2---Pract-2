@@ -18,6 +18,7 @@ public class Camping implements InCamping {
     // Constructor:
     public Camping(String nom) {
         this.nom = nom;
+        this.llistaAllotjaments = new LlistaAllotjaments();
         this.llistaAccessos = new llistaAccessos();
         this.llistaIncidencies = new LlistaIncidencies();
     }
@@ -35,10 +36,9 @@ public class Camping implements InCamping {
         return llistaAllotjaments;
     }
 
-
-
-
-
+    public LlistaAccessos getLlistaAccessos() {
+        return llistaAccessos;
+    }
     //Afegir allotjaments:
 
     public void afegirParcela(String nom_, String idAllotjament_, float metres, boolean connexioElectrica) throws ExcepcioCamping {
@@ -121,8 +121,12 @@ public class Camping implements InCamping {
     }
     public void eliminarIncidencia(int num) throws ExcepcioCamping {
 
-        Incidencia incidenciaAcutal = buscaIncidencia(num);
-        this.llistaIncidencies.eliminarIncidencia(incidenciaAcutal);
+        Incidencia incidenciaActual = buscaIncidencia(num);
+        Allotjament allotjamentActual = incidenciaActual.getAllotjament();
+        allotjamentActual.obrirAllotjament();
+        this.llistaIncidencies.eliminarIncidencia(incidenciaActual);
+        //Falta obrir els allotjaments.
+        this.llistaAccessos.actualitzarEstatAccesos();
 
     }
     //Gestió dels Acessos:
@@ -139,8 +143,14 @@ public class Camping implements InCamping {
     public String llistarIncidencies() throws ExcepcioCamping{
         return llistaIncidencies.llistarIncidencies();
     }
-    public String llistarAccessos(String infoEstat){
-        return llistaAccessos.llistarAccessos(infoEstat);
+    public String llistarAccessos(String infoEstat) throws ExcepcioCamping{
+        if (infoEstat.equals("Obert")) {
+            return llistaAccessos.llistarAccessos(true);
+        } else if (infoEstat.equals("Tancat")){
+            return llistaAccessos.llistarAccessos(false);
+        } else {
+            throw new ExcepcioCamping("L'estat indicat no existeix.");
+        }
     }
 
 }

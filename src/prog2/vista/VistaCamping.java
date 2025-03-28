@@ -39,6 +39,8 @@ public class VistaCamping {
 
         // Obtenim una opció des del menú i fem les accions pertinents
         VistaCamping.OpcionsMenuPrincipal opcio = null;
+        int _num;
+        String _idAllotjament,_data,_tipus;
         do {
 
             menu.mostrarMenu();
@@ -50,57 +52,125 @@ public class VistaCamping {
 
                     System.out.println("Has triat la opció: "+descMenuPrincipal[0]);
                     System.out.println("A continuació es mostraràn els allotjaments del càmping");
-                    System.out.println(this.camping.llistarAllotjaments("Operatiu"));
-                    System.out.println(this.camping.llistarAllotjaments("No Operatiu"));
+                    try {
+                        System.out.println(this.camping.llistarAllotjaments("Operatiu"));
+                        System.out.println(this.camping.llistarAllotjaments("No Operatiu"));
+                    } catch (ExcepcioCamping e){
+                        System.err.println(e.getMessage());
+                    }
                     break;
 
                 case MENU_PRINCIPAL_OPCIO2:
 
-                    System.out.println("Has triat la opció: "+descMenuPrincipal[1]);
-                    System.out.println("A continuació es mostraràn els allotjaments operatius del càmping");
-                    System.out.println(this.camping.llistarAllotjaments("Operatiu"));
+                    System.out.println("Has triat la opció: "+descMenuPrincipal[1]+"\n");
+                    System.out.println("A continuació es mostraràn els allotjaments operatius del càmping:\n");
+                    try {
+                        System.out.println(this.camping.llistarAllotjaments("Operatiu"));
+                    } catch (ExcepcioCamping e){
+                        System.err.println(e.getMessage());
+                    }
                     break;
 
                 case MENU_PRINCIPAL_OPCIO3:
 
-                    System.out.println("Has triat la opció: "+descMenuPrincipal[2]);
-                    System.out.println("A continuació es mostraràn els allotjaments no operatius del càmping");
-                    System.out.println(this.camping.llistarAllotjaments("No Operatiu"));
+                    System.out.println("Has triat la opció: "+descMenuPrincipal[2]+"\n");
+                    System.out.println("A continuació es mostraràn els allotjaments no operatius del càmping:\n");
+                    try {
+                        System.out.println(this.camping.llistarAllotjaments("No Operatiu"));
+                    } catch (ExcepcioCamping e){
+                        System.err.println(e.getMessage());
+                    }
                     break;
                 case MENU_PRINCIPAL_OPCIO4:
 
                     System.out.println("Has triat la opció: "+descMenuPrincipal[3]);
+                    System.out.println("A continuació es mostraràn els accessos oberts del càmping:\n");
+                    try {
+                        System.out.println(this.camping.llistarAccessos("Obert"));
+                    } catch (ExcepcioCamping e){
+                        System.err.println(e.getMessage());
+                    }
                     break;
+
                 case MENU_PRINCIPAL_OPCIO5:
 
-                    System.out.println("Has triat la opció: "+descMenuPrincipal[4]);
+                    System.out.println("Has triat la opció: "+descMenuPrincipal[4]+"\n");
+                    System.out.println("A continuació es mostraràn els accessos tancats del càmping:\n");
+                    try {
+                        System.out.println(this.camping.llistarAccessos("Tancat"));
+                    } catch (ExcepcioCamping e){
+                        System.err.println(e.getMessage());
+                    }
                     break;
+
                 case MENU_PRINCIPAL_OPCIO6:
 
-                    System.out.println("Has triat la opció: "+descMenuPrincipal[5]);
+                    System.out.println("Has triat la opció: "+descMenuPrincipal[5]+"\n");
+                    System.out.println("A continuació es llistaràn les incidències actuals: \n");
+                    try {
+                        System.out.println(camping.llistarIncidencies());
+                    } catch (ExcepcioCamping e){
+                        System.err.println(e.getMessage());
+                    }
                     break;
                 case MENU_PRINCIPAL_OPCIO7:
 
-                    System.out.println("Has triat la opció: "+descMenuPrincipal[6]);
+                    System.out.println("Has triat la opció: "+descMenuPrincipal[6]+"\n");
+                    System.out.println("Digues la Id de la incidència: ");
+                    _num = sc.nextInt();
+                    System.out.println("Introdueix la Id del allotjament: ");
+                    _idAllotjament = sc.nextLine();
+                    System.out.println("Ara digues, és una incidència de 'Reparacio','Neteja' o 'Tancament'");
+                    _tipus = sc.nextLine();
+                    System.out.println("De quin dia és aquesta incidència? (dd/mm/aaaa)");
+                    _data = sc.nextLine();
+                    try {
+                        camping.afegirIncidencia(_num, _idAllotjament, _tipus, _data);
+                    } catch (ExcepcioCamping e){
+                        System.err.println(e.getMessage());
+                    }
                     break;
+
                 case MENU_PRINCIPAL_OPCIO8:
 
-                    System.out.println("Has triat la opció: "+descMenuPrincipal[7]);
+                    System.out.println("Has triat la opció: "+descMenuPrincipal[7]+"\n");
+                    System.out.println("A continuació es llistaràn les incidències actuals: \n");
+                    try {
+                        System.out.println(camping.llistarIncidencies());
+                    } catch (ExcepcioCamping e){
+                        System.err.println(e.getMessage());
+                    }
+                    System.out.println("Introdueix el número de la Incidència a eliminar.");
+                    _num = sc.nextInt();
+                    try{
+                        camping.eliminarIncidencia(num);
+                    } catch (ExcepcioCamping e){
+                        System.err.println(e.getMessage());
+                    }
                     break;
+
                 case MENU_PRINCIPAL_OPCIO9:
 
-                    System.out.println("Has triat la opció: "+descMenuPrincipal[8]);
+                    System.out.println("Has triat la opció: "+descMenuPrincipal[8]+"\n");
+                    System.out.println("Número d'accessos disponibles per a vehicles: ");
+                    System.out.println(camping.calculaAccessosAccessibles());
                     break;
+
                 case MENU_PRINCIPAL_OPCIO10:
 
-                    System.out.println("Has triat la opció: "+descMenuPrincipal[9]);
+                    System.out.println("Has triat la opció: "+descMenuPrincipal[9]+"\n");
+                    System.out.println("Metres quadrats d'asfalt: ");
+                    System.out.println(camping.calculaMetresQuadratsAsfalt());
                     break;
+
                 case MENU_PRINCIPAL_OPCIO11:
-                    System.out.println("Has triat la opció: "+descMenuPrincipal[10]);
+                    System.out.println("Has triat la opció: "+descMenuPrincipal[10]"\n");
+                    // De moment no ho sé.
 
                     break;
                 case MENU_PRINCIPAL_OPCIO12:
-                    System.out.println("Has triat la opció: "+descMenuPrincipal[11]);
+                    System.out.println("Has triat la opció: "+descMenuPrincipal[11]"\n");
+                    // De moment no ho sé.
 
                     break;
 

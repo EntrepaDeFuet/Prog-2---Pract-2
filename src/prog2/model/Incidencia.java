@@ -14,7 +14,10 @@ public class Incidencia {
 
     // Constructor
     public Incidencia(String data, int num, Allotjament allotjament, TipusIncidencia tipusIncidencia) {
-
+        this.data = data;
+        this.num = num;
+        this.allotjament = allotjament;
+        this.tipusIncidencia = tipusIncidencia;
     }
 
     // Getters

@@ -68,10 +68,11 @@ public class LlistaIncidencies implements InLlistaIncidencies {
         if(!incidenciaRepetidaAllotjament(allotjament) && !incidenciaRepetida(num)){
 
             Incidencia novaIncidencia = new Incidencia(data,num,allotjament,retornaTipus(tipus));
+            allotjament.tancarAllotjament(novaIncidencia);
 
         }else if (!incidenciaRepetidaAllotjament(allotjament) && incidenciaRepetida(num)) {
 
-            throw new ExcepcioCamping("L'excepció amb el identificador: "+num+" ja existeix.");
+            throw new ExcepcioCamping("L'incidència amb el identificador: "+num+" ja existeix.");
 
         } else if(incidenciaRepetidaAllotjament(allotjament) && !incidenciaRepetida(num)) {
 
@@ -79,7 +80,7 @@ public class LlistaIncidencies implements InLlistaIncidencies {
 
         } else {
 
-            throw new ExcepcioCamping("Aquesta excepció ja existeix.");
+            throw new ExcepcioCamping("Aquesta incidència ja existeix.");
         }
 
     }
