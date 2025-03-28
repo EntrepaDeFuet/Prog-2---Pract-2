@@ -7,6 +7,7 @@ public abstract class AccesAsfalt extends Acces{
         super(nom_,accessibilitat_,estat_,desti_);
         this.asfalt = asfalt;
     }
+
     //Getters:
     public float getAsfalt() {
         return asfalt;
