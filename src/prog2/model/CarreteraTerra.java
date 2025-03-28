@@ -6,14 +6,14 @@ public class CarreteraTerra  extends  AccesTerra {
     // Constructor
 
     public CarreteraTerra(String nom_, boolean estat, Allotjament desti, float longitud, float amplada) {
-        super(nom_,this.isAccessibilitat(), estat, desti, longitud);
+        super(nom_,true, estat, desti, longitud);
 
-        this.setAmplada(float amplada);
+        this.amplada=amplada;
     }
 
     // Getters
     public float getAmplada() {
-        getAmplada();
+        return amplada;
     }
 
     public boolean isAccessibilitat(){

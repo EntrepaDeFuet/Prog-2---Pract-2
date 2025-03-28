@@ -1,5 +1,8 @@
 package prog2.model;
-public class Incidencia {
+
+import java.io.Serializable;
+
+public class Incidencia implements Serializable {
 
     public static enum TipusIncidencia {
         Reparacio,

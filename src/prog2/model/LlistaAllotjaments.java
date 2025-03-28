@@ -2,10 +2,11 @@ package prog2.model;
 
 import prog2.vista.ExcepcioCamping;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class LlistaAllotjaments {
+public class LlistaAllotjaments implements InLlistaAllotjaments, Serializable {
     //Atributs
     private ArrayList<Allotjament> llista;
 
@@ -64,7 +65,7 @@ public class LlistaAllotjaments {
 
         while (itrLlista.hasNext() && !operatiu){
             allotjamentActual = itrLlista.next();
-            operatiu = allotjamentActual.getEstat().equals("100%");
+            operatiu = allotjamentActual.getEstat().equals("Operatiu");
         }
         return operatiu;
     }
@@ -96,23 +97,29 @@ public class LlistaAllotjaments {
         }
     }
 
-    public String llistarAllotjament(String estat){
-
-        Allotjament allotjamentActual = null;
-        Iterator<Allotjament> itrAllotjaments = llista.iterator();
-        StringBuffer llistat = new StringBuffer();
-
-        while(itrAllotjaments.hasNext()){
-
-            allotjamentActual = itrAllotjaments.next();
-
-            if(allotjamentActual.getEstat().equals(estat)){
-
-                llistat.append(allotjamentActual.toString());
-                llistat.append("\n");
-            }
+    public String llistarAllotjaments(String estat) throws ExcepcioCamping{
+        if(!estat.equals("Operatiu")&&!estat.equals("No Operatiu")){
+            throw new ExcepcioCamping("El estat introduit no és vàlid.");
         }
-        return llistat.toString();
+        else if(!llista.isEmpty()){
+            Allotjament allotjamentActual = null;
+            Iterator<Allotjament> itrAllotjaments = llista.iterator();
+            StringBuffer llistat = new StringBuffer();
+
+            while (itrAllotjaments.hasNext()) {
+
+                allotjamentActual = itrAllotjaments.next();
+
+                if (allotjamentActual.getEstat().equals(estat)) {
+
+                    llistat.append(allotjamentActual.toString());
+                    llistat.append("\n");
+                }
+            }
+            return llistat.toString();
+        } else {
+            throw new ExcepcioCamping("La llista d'allotjaments és buida.");
+        }
 
     }
 

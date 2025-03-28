@@ -3,9 +3,9 @@ package prog2.model;
 public abstract class  AccesTerra extends Acces{
     private float longitud;
 
-    public AccesTerra(String nom_,boolean accessibilitat_, boolean estat_, Allotjament desti_,float longitud){
+    public AccesTerra(String nom_,boolean accessibilitat_, boolean estat_, float longitud){
 
-        super(nom_,accessibilitat_,estat_,desti_);
+        super(nom_,accessibilitat_,estat_);
         this.longitud = longitud;
 
     }
@@ -14,14 +14,14 @@ public abstract class  AccesTerra extends Acces{
         return longitud;
     }
     // Setters:
-    public float setLongitud(float longitud) {
+    public void setLongitud(float longitud) {
         this.longitud = longitud;
     }
 
     public String toString(){
         StringBuffer sb = new StringBuffer();
         sb.append(super.toString());
-        sb.append("Longitud: ").append(this.longitud);
+        sb.append("Longitud: ").append(this.getLongitud());
 
         return sb.toString();
     }

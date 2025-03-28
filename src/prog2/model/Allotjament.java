@@ -1,6 +1,8 @@
 package prog2.model;
 
-public abstract class Allotjament implements InAllotjament {
+import java.io.Serializable;
+
+public abstract class Allotjament implements InAllotjament, Serializable {
 
     private String id;
     private String nom;
@@ -54,6 +56,24 @@ public abstract class Allotjament implements InAllotjament {
     public void obrirAllotjament() {
         this.estat = "Operatiu";
         this.setIluminacio("100%");
+    }
+
+
+    public void tancarAllotjament(Incidencia in) {
+
+        switch (in.getTipusIncidencia()){
+            case Reparacio:
+                this.estat = "No Operatiu";
+                this.setIluminacio("100%");
+                break;
+            case Neteja:
+                this.estat = "No Operatiu";
+                this.setIluminacio("50%");
+                break;
+            case Tancament:
+                this.estat = "No Operatiu";
+                this.setIluminacio("0%");
+        }
     }
 
     public void setId(String id_) {

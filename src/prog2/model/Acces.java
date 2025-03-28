@@ -2,20 +2,22 @@ package prog2.model;
 
 import prog2.vista.ExcepcioCamping;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public abstract class Acces  implements  InAcces {
+public abstract class Acces  implements  InAcces, Serializable {
     private String nom;
     private boolean accessibilitat;
     private boolean estat;
-    private ArrayList<Allotjament> destins = new ArrayList<Allotjament>();
+    private ArrayList<Allotjament> destins; // He pensat que podria ser curios fer servir una LlistaAllotjaments
+    //Tot i així  no és possible perquè em demanaría modificar el InLlistaAllotjaments per afegir un throws a un metode.
 
-    public Acces(String nom_, boolean accessibilitat_, boolean estat_, Allotjament desti_) {
+    public Acces(String nom_, boolean accessibilitat_, boolean estat_) {
         this.setNom(nom_);
         this.setEstat(estat_);
         this.setAccessibilitat(accessibilitat_);
-        this.afegirAllotjament(desti_);
+        this.destins = new ArrayList<Allotjament>();
 
     }
 

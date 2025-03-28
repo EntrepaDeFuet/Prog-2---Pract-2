@@ -4,8 +4,8 @@ public class CamiAsfaltat extends AccesAsfalt {
 
 
     // Constructor
-    public CamiAsfaltat(String nom_,boolean estat, Allotjament desti, float asfalt) {
-        super(nom_,this.isAccessibilitat(), estat, desti, asfalt);
+    public CamiAsfaltat(String nom_,boolean estat,  float asfalt) {
+        super(nom_,false, estat, asfalt);
 
     }
 

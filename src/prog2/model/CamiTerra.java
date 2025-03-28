@@ -5,9 +5,8 @@ public class CamiTerra extends AccesTerra {
 
     // Constructor
     public CamiTerra(String nom_,boolean estat, Allotjament desti, float longitud) {
-        super(nom_,this.isAccessibilitat(), estat, desti);
+        super(nom_,false, estat, desti,longitud);
 
-        this.setLongitud(float longitud);
     }
     //Getters:
     public boolean isAccessibilitat(){

@@ -143,7 +143,7 @@ public class VistaCamping {
                     System.out.println("Introdueix el número de la Incidència a eliminar.");
                     _num = sc.nextInt();
                     try{
-                        camping.eliminarIncidencia(num);
+                        camping.eliminarIncidencia(_num);
                     } catch (ExcepcioCamping e){
                         System.err.println(e.getMessage());
                     }
@@ -164,13 +164,22 @@ public class VistaCamping {
                     break;
 
                 case MENU_PRINCIPAL_OPCIO11:
-                    System.out.println("Has triat la opció: "+descMenuPrincipal[10]"\n");
-                    // De moment no ho sé.
+                    System.out.println("Has triat la opció: "+descMenuPrincipal[10]+"\n");
+                    try {
+                        camping.save("Camping.dat");
+                        System.out.println("S'ha guardat amb éxit el fitxer.");
+                    } catch (ExcepcioCamping e){
+                        System.err.println(e.getMessage());
+                    }
 
                     break;
                 case MENU_PRINCIPAL_OPCIO12:
-                    System.out.println("Has triat la opció: "+descMenuPrincipal[11]"\n");
-                    // De moment no ho sé.
+                    System.out.println("Has triat la opció: "+descMenuPrincipal[11]+"\n");
+                    try{
+                        this.camping = Camping.load("Camping.dat");
+                    } catch (ExcepcioCamping e){
+                        System.err.println(e.getMessage());
+                    }
 
                     break;
 
@@ -179,7 +188,7 @@ public class VistaCamping {
                     break;
             }
 
-        } while(opcio!= ExempleMenu.OpcionsMenuPrincipal.MENU_PRINCIPAL_SORTIR);
+        } while(opcio!= VistaCamping.OpcionsMenuPrincipal.MENU_PRINCIPAL_SORTIR);
     }
 }
 
