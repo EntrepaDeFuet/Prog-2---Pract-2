@@ -139,19 +139,19 @@ public class Camping implements InCamping, Serializable {
         }
     }
     public  static Camping load(String camiOrigen) throws ExcepcioCamping {
-
+        Camping camping;
         try {
             File fitxer = new File(camiOrigen);
             FileInputStream fis = new FileInputStream(fitxer);
             ObjectInputStream ois = new ObjectInputStream(fis);
-            Camping camping = (Camping) ois.readObject();
+            camping = (Camping) ois.readObject();
             ois.close();
             fis.close();
         } catch (Exception e){
             throw new ExcepcioCamping(e.getMessage());
         }
 
-        return null;
+        return camping;
     }
 
     //Aqui ve el drama:
