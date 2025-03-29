@@ -125,5 +125,7 @@ public class LlistaAllotjaments implements InLlistaAllotjaments, Serializable {
 
     }
 
-
+    public int midaLlista() {
+        return this.llista.size();
+    }
 }

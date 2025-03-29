@@ -142,4 +142,8 @@ public class LlistaIncidencies implements InLlistaIncidencies, Serializable {
         }
     }
 
+    public int midaLlista() {
+        return this.llistaIncidencies.size();
+    }
+
 }
