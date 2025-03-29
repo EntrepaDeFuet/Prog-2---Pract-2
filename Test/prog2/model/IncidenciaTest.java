@@ -31,11 +31,13 @@ class IncidenciaTest {
         assertEquals(allotjamentTest, incidenciaTest.getAllotjament());
     }
 
+    // REVISAR
     @Test
     void getTipusIncidencia() {
         assertEquals(Incidencia.TipusIncidencia.Reparacio, incidenciaTest.getTipusIncidencia());
     }
 
+    // REVISAR
     @Test
     void getIluminacioAllotjament() {
         assertEquals("100%", incidenciaTest.getIluminacioAllotjament());
