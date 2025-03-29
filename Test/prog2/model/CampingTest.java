@@ -10,11 +10,20 @@ class CampingTest {
     Allotjament allotjamentTest;
     Incidencia incidenciaTest;
     Camping campingTest;
+    Acces accesTest;
 
     @BeforeEach
     void setUp() {
         allotjamentTest = new Allotjament("A01", "AllotjamentTest", true, "100%", 5, 2) {};
         campingTest = new Camping("campingTest");
+        accesTest = new Acces("Acc0",true,true) {};
+        accesTest.afegirAllotjament(allotjamentTest);
+        try {
+            campingTest.getLlistaAllotjaments().afegirAllotjament(allotjamentTest);
+            campingTest.getLlistaAccessos().afegirAcces(accesTest);
+        } catch (ExcepcioCamping e){
+            System.err.println("Error Controlat.");
+        }
         incidenciaTest = new Incidencia("dataTest", 1, allotjamentTest, Incidencia.TipusIncidencia.Reparacio) {};
     }
 
@@ -55,7 +64,7 @@ class CampingTest {
     @Test
     void llistarAllotjaments() throws ExcepcioCamping {
         campingTest.inicialitzaDadesCamping();
-        String lstAllTest = campingTest.llistarAllotjaments("Obert");
+        String lstAllTest = campingTest.llistarAllotjaments("Operatiu");
         assertNotNull(lstAllTest);
     }
 

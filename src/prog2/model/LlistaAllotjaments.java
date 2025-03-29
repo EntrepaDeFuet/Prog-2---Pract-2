@@ -40,21 +40,18 @@ public class LlistaAllotjaments implements InLlistaAllotjaments, Serializable {
         if(!this.contains(allotjament)){
             llista.add(allotjament);
         } else {
-            throw new ExcepcioCamping("Ja existeix un Allotjament amb aquest nom.");
+            throw new ExcepcioCamping("Ja existeix un Allotjament amb aquesta id.");
         }
     }
 
     public boolean contains(Allotjament allotjament){
-        return allotjamentRepetit(allotjament.getNom());
+        return allotjamentRepetit(allotjament.getId());
     }
 
     public void buidar(){
 
-        Iterator <Allotjament> itrLlista = llista.iterator();
+        this.llista.clear();
 
-        while (itrLlista.hasNext()){
-            itrLlista.remove();
-        }
     }
 
     public boolean containsAllotjamentOperatiu(){

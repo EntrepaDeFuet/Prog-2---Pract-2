@@ -10,7 +10,7 @@ import java.util.concurrent.ExecutionException;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LlistaAccessosTest {
-
+    private Allotjament allotjamentActual = new Bungalow("Prova","prova",true,"100%",22f,2,4,4,true,true,true);
     private LlistaAccessos llistaAccessosTest;
     private Acces accesTest;
     private AccesAsfalt accesAsfaltTest;
@@ -19,7 +19,8 @@ class LlistaAccessosTest {
     void setUp() {
         llistaAccessosTest = new LlistaAccessos();
         accesTest = new Acces("AccesTest", true, true) {};
-        accesAsfaltTest = new AccesAsfalt("testAsfalt", true, true, 10) {};
+        accesAsfaltTest = new AccesAsfalt("testAsfalt", true, true, 10){};
+        accesTest.afegirAllotjament(allotjamentActual);
 
     }
 
