@@ -27,7 +27,7 @@ public class LlistaAllotjaments implements InLlistaAllotjaments, Serializable {
         Iterator<Allotjament> itrAllotjaments = llista.iterator();
 
         while(itrAllotjaments.hasNext() && !repetit){
-            repetit = itrAllotjaments.next().getNom().equals(id);
+            repetit = itrAllotjaments.next().getId().equals(id);
         }
 
 
@@ -82,17 +82,19 @@ public class LlistaAllotjaments implements InLlistaAllotjaments, Serializable {
 
             Iterator <Allotjament> itrAllotjaments = this.llista.iterator();
             Allotjament allotjamentActual = null;
+            boolean condicio = false;
 
-            while(itrAllotjaments.hasNext() && !allotjamentActual.getId().equals(id)){
+            while(itrAllotjaments.hasNext() && !condicio){
 
                 allotjamentActual = itrAllotjaments.next();
+                condicio = allotjamentActual.getId().equals(id);
 
             }
             return allotjamentActual;
         }
         else {
 
-            throw new ExcepcioCamping("No existeix cap allotjament amb aquest nom.");
+            throw new ExcepcioCamping("No existeix cap allotjament amb aquesta Id.");
 
         }
     }

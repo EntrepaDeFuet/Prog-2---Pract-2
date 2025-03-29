@@ -24,7 +24,7 @@ public class LlistaIncidencies implements InLlistaIncidencies, Serializable {
 
             allotjamentActual = itr.next().getAllotjament();
 
-            if (allotjamentActual.getId()==allotjament.getId()){
+            if (allotjamentActual.getId().equals(allotjament.getId())){
                 repetit = true;
             }
         }
@@ -69,6 +69,7 @@ public class LlistaIncidencies implements InLlistaIncidencies, Serializable {
         if(!incidenciaRepetidaAllotjament(allotjament) && !incidenciaRepetida(num)){
 
             Incidencia novaIncidencia = new Incidencia(data,num,allotjament,retornaTipus(tipus));
+            this.llistaIncidencies.add(novaIncidencia);
             allotjament.tancarAllotjament(novaIncidencia);
 
         }else if (!incidenciaRepetidaAllotjament(allotjament) && incidenciaRepetida(num)) {
@@ -106,7 +107,7 @@ public class LlistaIncidencies implements InLlistaIncidencies, Serializable {
 
     public String llistarIncidencies() throws ExcepcioCamping {
 
-        if (llistaIncidencies.size() != 0) {
+        if (!llistaIncidencies.isEmpty()) {
             Incidencia incidenciaActual;
             Iterator<Incidencia> it = llistaIncidencies.iterator();
             StringBuffer sb = new StringBuffer();

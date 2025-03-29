@@ -46,7 +46,7 @@ public class LlistaAccessos implements InLlistaAccessos, Serializable {
     }
 
     public void actualitzaEstatAccessos() throws ExcepcioCamping {
-        if (llista.isEmpty()) {
+        if (!llista.isEmpty()) {
             Acces accesActual = null;
             Iterator<Acces> it = llista.iterator();
 
