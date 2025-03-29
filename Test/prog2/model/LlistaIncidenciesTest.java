@@ -29,6 +29,7 @@ class LlistaIncidenciesTest {
     @Test
     void eliminarIncidencia() throws ExcepcioCamping {
         llistaIncidenciesTest.afegirIncidencia(1, "Reparacio", allotjamentTest, "dataTest");
+        llistaIncidenciesTest.eliminarIncidencia(incidenciaTest);
 
         assertEquals(0, llistaIncidenciesTest.midaLlista());
     }
