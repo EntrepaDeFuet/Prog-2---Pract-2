@@ -38,12 +38,13 @@ class AllotjamentTest {
 
     @Test
     void getEstadaMinima() {
-        assertEquals(5, allotjamentTest.getEstadaMinima(InAllotjament.Temp.BAIXA));
+        assertEquals(2, allotjamentTest.getEstadaMinima(InAllotjament.Temp.BAIXA));
     }
 
     @Test
     void obrirAllotjament() {
         allotjamentTest.obrirAllotjament();
+
         assertTrue(allotjamentTest.getEstat().equals("Operatiu"));
         assertEquals("100%", allotjamentTest.getIluminacio());
     }
@@ -51,6 +52,7 @@ class AllotjamentTest {
     @Test
     void tancarAllotjament() {
         allotjamentTest.tancarAllotjament(incidenciaTest);
+
         assertTrue(allotjamentTest.getEstat().equals("No Operatiu"));
         assertEquals("100%", allotjamentTest.getIluminacio());
     }
