@@ -14,7 +14,7 @@ public abstract class Allotjament implements InAllotjament, Serializable {
     private String iluminacio;
 
 
-    public Allotjament(String _id, String _nom,boolean estat,String iluminacio, int estadaMinimaTempAlta_, int estadaMinimaTempBaixa_) {
+    public Allotjament(String _id, String _nom, boolean estat, String iluminacio, int estadaMinimaTempAlta_, int estadaMinimaTempBaixa_) {
 
         this.setId(_id);
         this.setNom(_nom);
