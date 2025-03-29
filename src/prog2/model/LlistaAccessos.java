@@ -105,4 +105,9 @@ public class LlistaAccessos implements InLlistaAccessos, Serializable {
             throw new ExcepcioCamping("Aquesta llista està buida");
         }
     }
+
+    // Retorna la mida de la llista
+    public int midaLlista() {
+        return this.llista.size();
+    }
 }
